@@ -1,13 +1,254 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik-Medium"), url(./fonts/Rubik-Medium.ttf) format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: local("NotoSans-Regular"),
+    url(./fonts/NotoSans-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Noto Sans";
+  src: local("NotoSans-Bold"), url(./fonts/NotoSans-Bold.ttf) format("truetype");
+  font-weight: bold;
+}
+
+html,
+body,
+#root {
+  height: 100% !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.logo {
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 1.8rem !important;
+  color: #0054ff !important;
+  margin: 0 auto !important;
+  padding: 0 0.5rem;
+}
+
+.search-navbar {
+  max-width: 1100px;
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jobs-content {
+  max-width: 1100px;
+  padding: 0.5rem 1rem 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results {
+  float: left;
+  width: 45%;
+}
+
+/* .stick {
+  margin-left: 1%;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  position: sticky;
+  top: 10px;
+  max-height: 100vh;
+  float: left;
+  overflow: auto;
+  width: 54%;
+} */
+
+.jobcard {
+  max-height: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jobs-list .job-card:last-child {
+  margin-bottom: 0 !important;
+}
+
+.login {
+  text-align: center;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 100%;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  /* margin-bottom: -1px; */
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.main-label {
+  font-size: 1.4rem !important;
+  color: #212529;
+}
+
+.main-label small {
+  font-size: 60% !important;
+}
+
+.search-input {
+  font-size: 1rem !important;
+}
+
+.search-form {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-navbar input {
+  width: inherit !important;
+}
+
+.jobprev-card-wrapper {
+  background-color: #fff;
+  padding: 1rem;
+  align-self: flex-start;
+  position: relative;
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh;
+}
+
+.jobprev-card {
+  padding-right: 1rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  overflow-y: auto;
+}
+
+.job-card {
+  cursor: pointer;
+  font-family: "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #767676;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.jobpost {
+  max-width: 1100px;
+  padding: 0.5rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 767.98px) {
+  .jobprev {
+    display: none;
+  }
+
+  .offcanvas-collapse {
+    background-color: #ffffff !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .navbar-nav:not(:last-child) .nav-link {
+    border-bottom: solid 1px #ced4da;
+  }
+
+  .btn-outline-primary {
+    margin: 0 1rem;
+  }
+
+  .fixd {
+    font-size: 1.2rem;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .fixd .mt1-mob {
+    margin-top: 0.5rem !important;
+    width: max-content;
+  }
+
+  .content .search-form {
+    margin-top: 0.5rem !important;
+  }
+
+  .search-form .pt0-mob {
+    padding-top: 0 !important;
+  }
+
+  .search-form .mt1-mob {
+    margin-top: 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .links .py1-mob {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .block-mob {
+    display: block;
+  }
+
+  .links .trending {
+    padding-bottom: 1.5rem !important;
+  }
 }
