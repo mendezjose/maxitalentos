@@ -2,6 +2,10 @@ import React from "react";
 import { convertFromRaw, EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import ReactHtmlParser from "react-html-parser";
+import { Icon } from "@iconify/react";
+import closeIcon from "@iconify/icons-jam/close";
+
+const emptyJob = {};
 
 const JobPrev = (props) => {
   const editorState =
@@ -12,10 +16,22 @@ const JobPrev = (props) => {
 
   return (
     <div className="jobprev col-md-7 pr-0" id="jobprev">
-      <div className="jobprev-card-wrapper col-md-12">
+      <div className="jobprev-card-wrapper rounded col-md-12">
         {props.currentJob.description && (
           <div className="jobprev-card border rounded">
-            <div className="p-3">
+            <div className="jobprev-header p-3 rounded">
+              <div className="job-title">
+                <h3>{props.currentJob.title}</h3>
+              </div>
+              <div className="job-x">
+                <Icon
+                  className="close-icon clickable"
+                  icon={closeIcon}
+                  onClick={() => props.handleJobSelected(emptyJob)}
+                />
+              </div>
+            </div>
+            <div className="jobprev-card-content p-3">
               {ReactHtmlParser(
                 draftToHtml(convertToRaw(editorState.getCurrentContent()))
               )}

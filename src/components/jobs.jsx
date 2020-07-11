@@ -4,6 +4,8 @@ import JobsContent from "./jobsContent";
 import SearchNavbar from "./searchNavbar";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 const Jobs = (props) => {
   const query = queryString.parse(props.location.search);

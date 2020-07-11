@@ -155,18 +155,23 @@ code {
   align-self: flex-start;
   position: relative;
   position: sticky !important;
-  top: 0 !important;
-  height: 100vh;
+  top: 10px !important;
 }
 
 .jobprev-card {
-  padding-right: 1rem;
+  padding-right: 1rem 0 1rem 1rem;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobprev-card-content {
   overflow-y: auto;
+  height: 100%;
 }
 
 .job-card {
@@ -188,6 +193,36 @@ code {
   padding: 0.5rem 1rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+.jobprev-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.jobprev-header .job-title {
+  flex: 1;
+}
+
+.jobprev-header .job-x {
+  flex: 0;
+  color: grey;
+}
+
+.close-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.rounded {
+  border-radius: 0.5rem !important;
 }
 
 @media (max-width: 767.98px) {

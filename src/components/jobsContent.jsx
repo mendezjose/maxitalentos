@@ -9,7 +9,7 @@ const JobsContent = (props) => {
   const [pageSize, setPageSize] = useState(10);
 
   useEffect(() => {
-    props.loadJobs();
+    props.loadJobs(props.query);
   }, []);
 
   const handlePageChange = (page) => {
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  loadJobs: () => dispatch(loadJobs()),
+  loadJobs: (query) => dispatch(loadJobs(query)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(JobsContent);

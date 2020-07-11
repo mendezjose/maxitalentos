@@ -50,8 +50,10 @@ class Results extends Component {
     return _(items).slice(startIndex).take(pageSize).value();
   };
 
-  getCardClass = () => {
-    return "job-card col-md-12 p-4 mb-3 border rounded";
+  getCardClass = (job) => {
+    return job._id === this.state.currentJob._id
+      ? "job-card col-md-12 p-4 mb-3 border border-primary rounded"
+      : "job-card col-md-12 p-4 mb-3 border rounded";
   };
 
   render() {
@@ -67,7 +69,7 @@ class Results extends Component {
               {jobs.map((job) => (
                 <div
                   key={job._id}
-                  className={this.getCardClass()}
+                  className={this.getCardClass(job)}
                   onClick={() => this.handleJobSelected(job)}
                 >
                   <h5>
@@ -93,7 +95,10 @@ class Results extends Component {
               ))}
             </div>
 
-            <JobPrev currentJob={this.state.currentJob} />
+            <JobPrev
+              currentJob={this.state.currentJob}
+              handleJobSelected={this.handleJobSelected}
+            />
           </div>
         </div>
       </React.Fragment>

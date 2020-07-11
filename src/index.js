@@ -10,10 +10,13 @@ import "./index.css";
 import "./pricing.css";
 import "./RichEditor.css";
 import "./offcanvas.css";
+import { CookiesProvider } from "react-cookie";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

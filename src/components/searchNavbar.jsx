@@ -1,9 +1,11 @@
 import React from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 
-const SearchNavbar = () => {
+const SearchNavbar = (props) => {
   return (
     <nav className="search-navbar navbar navbar-light">
-      <form className="form-inline mb-2">
+      <form className="form-inline mb-2" method="get" action="/empleos">
         <div className="row m-0">
           <div className="form-group col-sm-5 p-0">
             <label
@@ -14,10 +16,12 @@ const SearchNavbar = () => {
             </label>
             <input
               id="what"
+              name="q"
               className="form-control mr-sm-2"
               type="search"
               placeholder="Puesto o palabra clave"
               aria-label="Search"
+              defaultValue={props.query.q}
             ></input>
           </div>
           <div className="form-group col-sm-5 p-0">
@@ -29,10 +33,12 @@ const SearchNavbar = () => {
             </label>
             <input
               id="where"
+              name="l"
               className="form-control mr-sm-2"
               type="search"
               placeholder="Ciudad o estado"
               aria-label="Search"
+              defaultValue={props.query.l}
             ></input>
           </div>
           <div className="form-group col-sm-2 p-0 d-flex">

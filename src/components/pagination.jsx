@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import _ from "lodash";
 
 const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
-  const pagesCount = Math.ceil(itemsCount / pageSize);
+  const pagesCount = Math.ceil(itemsCount / pageSize) || 1;
 
   const left = getLeft(currentPage, pagesCount);
   const right = getRight(currentPage, pagesCount, left);
 
-  if (pagesCount === 1) return null;
+  // if (pagesCount === 1) return null;
   const pages = _.range(left, right + 1);
 
   let hrefLink = "#";

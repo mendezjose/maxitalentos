@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import _ from "lodash";
 import Footer from "./footer";
 
-const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
+const PaginationAndFooter = ({
+  itemsCount,
+  pageSize,
+  currentPage,
+  onPageChange,
+}) => {
   const observer = useRef();
 
   const paginationAndFooterRef = useRef();
@@ -19,8 +24,9 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
     observer.current = new IntersectionObserver(([entry]) => {
       entry.target.parentElement.children[0].children[0].children[1].children[0].style.height = `calc(100vh - ${
         entry.intersectionRatio * 230
-      }px)`;
+      }px - 10px)`;
     }, observerOptions);
+
     observer.current.observe(paginationAndFooterRef.current);
   }, []);
 
@@ -33,12 +39,12 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   //   observer.current.observe(node);
   // });
 
-  const pagesCount = Math.ceil(itemsCount / pageSize);
+  const pagesCount = Math.ceil(itemsCount / pageSize) || 1;
 
   const left = getLeft(currentPage, pagesCount);
   const right = getRight(currentPage, pagesCount, left);
 
-  if (pagesCount === 1) return null;
+  // if (pagesCount === 1) return null;
   const pages = _.range(left, right + 1);
 
   let hrefLink = "#";
@@ -99,14 +105,14 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   );
 };
 
-Pagination.propTypes = {
+PaginationAndFooter.propTypes = {
   itemsCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
 
-export default Pagination;
+export default PaginationAndFooter;
 
 function getLeft(currentPage, pagesCount) {
   if (currentPage <= 2) return 1;

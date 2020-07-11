@@ -20,9 +20,9 @@ const slice = createSlice({
 const { jobsRecived, jobSaved } = slice.actions;
 
 //  Actions
-export const loadJobs = () =>
+export const loadJobs = (query) =>
   apiCallBegan({
-    url: "/jobs",
+    url: `/jobs?q=${query.q}&l=${query.l}`,
     onSuccess: jobsRecived.type,
   });
 
